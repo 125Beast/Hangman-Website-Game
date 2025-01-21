@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1>Hangman Game</h1>
+    <p id="word-length">The word has X letters.</p>
+    <div id="word-display">_ _ _ _ _</div>
+    <p id="lives">Lives: 6</p>
+    <p id="hint"></p>
+    <p id="guessed-letters"></p>
+    <input type="text" id="guess-input" maxlength="1" placeholder="Enter a letter">
+    <div class="buttons">
+      <button id="guess-button">Guess</button>
+      <button id="hint-button">Hint</button>
+      <button id="restart-button">Restart</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
