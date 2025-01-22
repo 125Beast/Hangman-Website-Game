@@ -34,6 +34,37 @@ const wordsWithHints = [
     lives = 6;
     guessedLetters = [];
     hintUsed = false;
+
+// Handle full word guess
+document.getElementById("guess-full-word").addEventListener("click", () => {
+    if (lives <= 0) {
+        alert("Game over! Restart to play again.");
+        return;
+    }
+
+    const fullWordGuess = document.getElementById("full-word-guess").value.toLowerCase();
+    document.getElementById("full-word-guess").value = "";
+
+    if (!fullWordGuess || fullWordGuess.length < 1) {
+        alert("Please enter a valid word.");
+        return;
+    }
+
+    if (fullWordGuess === selectedWord) {
+        document.getElementById("lives").textContent = "Congratulations, you guessed the word! 🎉";
+        document.getElementById("word-display").textContent = selectedWord;
+        document.getElementById("hint").textContent = "";
+    } else {
+        lives--;
+        if (lives === 0) {
+            document.getElementById("lives").textContent = "Game over! 💀";
+            document.getElementById("word-display").textContent = `The word was: ${selectedWord}`;
+            return;
+        }
+        updateDisplay();
+    }
+});
+
   
     document.getElementById("word-display").textContent = guessedWord.join(" ");
     document.getElementById("lives").textContent = `Lives: ${lives}`;
